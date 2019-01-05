@@ -1,0 +1,120 @@
+<div class="containter mt-4">
+  <h1 class="text text-center">Pizarra de Tareas</h1>
+</div>
+<div class="container mt-2">
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+  Agregar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar nueva tarea</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nombre</label>
+            <input [(ngModel)]="seleccionarTarea.nombre" [ngModelOptions]="{standalone: true}" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese el nombre de la tarea">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Encargado</label>
+            <input  [(ngModel)]="seleccionarTarea.encargado" [ngModelOptions]="{standalone: true}"type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese el encargado de la tarea">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Detalle</label>
+            <input  [(ngModel)]="seleccionarTarea.detalle" [ngModelOptions]="{standalone: true}" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese el nombre de la tarea">
+          </div>
+          <div action="" class="form-group">
+            <form>
+              <label for="exampleInputEmail1">Estado</label><br>
+        <select [(ngModel)]="seleccionarTarea.estado" [ngModelOptions]="{standalone: true}">
+
+  <option value="1">Por Iniciar</option>
+  <option value="2">Pendiente</option>
+  <option value="3">Finalizado</option>
+          </select>
+            </form>
+            </div>
+            
+        </form>
+      </div>
+      <div class="modal-footer">
+          <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button (click) = "agregar()" type="button" class="btn btn-success">Guardar</button>
+              <button *ngIf= "seleccionarTarea.id !==0" (click) = "eliminar()" type="button" class="btn btn-danger">Eliminar</button>
+            </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="container mt-2">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="text text-center">Por Iniciar</th>
+        <th scope="col" class="text text-center">Pendiente</th>
+        <th scope="col" class="text text-center">Finalizado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" height="450" width="400">
+          <ul class="list-group list-group-flush"
+          *ngFor="let tarea of arregloDeTareasEstadoUno"  
+         >
+            <li 
+             class="list-group-item list-group-item-action"
+             [class.active] = "tarea == seleccionarTarea"
+             width="100"
+             >
+             <button data-toggle="modal" data-target="#exampleModal" (click) = "AbrirParaEditar(tarea)" type="button" class="btn btn-primary btn-lg btn-block" >{{tarea.nombre}} - {{tarea.encargado}} </button>
+            </li>     
+          </ul>
+        </th>
+        <td height="450" width="400" >
+            <ul class="list-group list-group-flush"
+            *ngFor="let tarea of arregloDeTareasEstadoDos">
+                <li
+                 class="list-group-item list-group-item-action"
+                 [class.active] = "tarea == seleccionarTarea"
+                 width="100"
+                 >
+                 <button data-toggle="modal" data-target="#exampleModal" (click) = "AbrirParaEditar(tarea)" type="button" class="btn btn-primary btn-lg btn-block" >{{tarea.nombre}} - {{tarea.encargado}} </button>
+                </li>     
+              </ul>
+
+        </td>
+        <td height="450" width="400" >
+            <ul class="list-group list-group-flush"
+            *ngFor="let tarea of arregloDeTareasEstadoTres"
+            >
+          
+                <li 
+                 class="list-group-item list-group-item-action"
+                 [class.active] = "tarea == seleccionarTarea"
+                 width="100"
+                 >
+                 <button  data-toggle="modal" data-target="#exampleModal" (click) = "AbrirParaEditar(tarea)" type="button" class="btn btn-primary btn-lg btn-block" >{{tarea.nombre}} - {{tarea.encargado}} </button>
+                </li>     
+              </ul>
+        </td>
+
+      </tr>
+
+
+    </tbody>
+  </table>
+  
+  
+
+</div>

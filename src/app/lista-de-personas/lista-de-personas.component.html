@@ -1,0 +1,42 @@
+
+<div class="container mt-4">
+  <div class="row">
+  <div class="col-md-8">
+      <ul class="list-group list-group-flush">
+          <li *ngFor="let persona of arregloDePersonas"
+           class="list-group-item list-group-item-action"
+           (click) = "AbrirParaEditar(persona)"
+           [class.active] = "persona == seleccionarPersona"
+           >
+           {{persona.nombre}} {{persona.apellido}} 
+          </li>
+     
+        </ul>
+        <div class="card text-center mt-4">
+            <div class="card-header">
+              Opciones
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Aqui puede ingresar, editar o eliminar!</h5>
+              <p class="card-text">Puede editar o eliminar personas que esten en la lista!</p>
+              <div class="form-group">
+                <input type="text" [(ngModel)]="seleccionarPersona.nombre" placeholder="Nombre de la persona" class="form-control" required>
+                <input type="text" [(ngModel)]="seleccionarPersona.apellido" placeholder="Apellido de la persona" class="form-control">
+                <input type="text" [(ngModel)]="seleccionarPersona.telefono"placeholder="Telefono de la persona" class="form-control">
+                <input type="text" [(ngModel)]="seleccionarPersona.genero" placeholder="Genero de la persona" class="form-control">
+            </div>
+          
+            <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" (click) ="agregar()" class="btn btn-success">Guardar</button>            
+             
+                <button *ngIf= "seleccionarPersona.id !==0" 
+                (click) = "eliminar()"
+                type="button" class="btn btn-danger">Eliminar</button>
+               </div>
+            <div class="card-footer text-muted">
+              Lista de Personas
+            </div>
+          </div>
+  </div>
+  </div>
+</div>
