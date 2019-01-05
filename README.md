@@ -13,4 +13,6 @@ se aprecia toda la funcionalidad y como se desarrollo.
 
 Josue Quesada
 
+## Interfaz
 
+![Screenshot](Inicio.jpg)
