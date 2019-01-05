@@ -9,7 +9,7 @@ tiene una pagina de inicio, un controlador de lista de personas y una pizarra de
 tareas tipo kanban, en el pdf se puede apreciar la interfaz grafica, y el codigo
 se aprecia toda la funcionalidad y como se desarrollo.
 
-##Autor 
+## Autor 
 
 Josue Quesada
 
