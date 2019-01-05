@@ -16,3 +16,12 @@ Josue Quesada
 ## Interfaz
 
 ![Screenshot](Inicio.jpg)
+
+
+![Screenshot](ListaPersonas.jpg)
+
+
+![Screenshot](Kanban.jpg)
+
+
+![Screenshot](KanbanIngresar.jpg)
